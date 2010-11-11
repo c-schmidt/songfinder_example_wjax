@@ -1,0 +1,72 @@
+Der Songfinder wurde für den Vortrag "Scala – OSGi-Bundles from Outer (Java)
+Space" für die W-JAX 2010 entwickelt.
+
+Siehe: http://entwickler.com/konferenzen/ext_scripts/v2/php/sessions-popup.php?module=wjax2010&id=15038
+
+In der vorliegenden Version läuft er unter Linux.
+
+Sie benötigen zusätzlich:
+
+- JDK
+- Streamripper: http://streamripper.sourceforge.net/
+- Sbt: http://code.google.com/p/simple-build-tool/
+- Pax Runner: http://paxrunner.ops4j.org/space/Pax+Runner
+
+Zum Starten geben Sie folgendes ein:
+
+$ sbt
+sbt> bnd-bundle
+sbt> quit
+$ pax-run.sh --bootDelegation="sun.*,com.sun.*" scan-composite:file:songfinder.composite
+
+Der Songfinder erstellt in Ihrem $HOME-Verzeichnis den Ordner Songfinder
+
+Songfinder
+|-- PlayList
+|   `-- songs.xml
+|-- Songs
+`-- WishList
+    `-- songs.xml
+
+Zum Testen können Sie folgende Daten in die xml-Dateien eintragen:
+
+PlayList/songs.xml:
+-------------------
+<?xml version="1.0" encoding="UTF-8" ?>
+<songs>
+  <song>
+   <title>lal allsd</title>
+   <time>1620</time>
+   <source>http://metafiles.gl-systemhaus.de/hr/youfm_2.m3u</source>
+   <length>60</length>
+  </song>
+  <song>
+   <title>hans im glück</title>
+   <time>820</time>
+   <source>http://metafiles.gl-systemhaus.de/hr/youfm_2.m3u</source>
+   <length>60</length>
+  </song>
+  <song>
+   <title>das leben ist schön</title>
+   <time>819</time>
+   <source>http://metafiles.gl-systemhaus.de/hr/youfm_2.m3u</source>
+   <length>60</length>
+  </song>
+   <song>
+   <title>alle meine entchen</title>
+   <time>822</time>
+   <source>http://metafiles.gl-systemhaus.de/hr/youfm_2.m3u</source>
+   <length>60</length>
+  </song>
+</songs>
+
+WishList/songs.xml:
+-------------------
+<?xml version="1.0" encoding="UTF-8" ?>
+<songs>
+  <title>alle meine entchen</title>
+  <title>das leben ist schön</title>
+  <title>hans im glück</title>
+</songs>
+
+
