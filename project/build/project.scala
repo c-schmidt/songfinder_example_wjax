@@ -47,7 +47,7 @@ class RadioParentProject(info: ProjectInfo) extends ParentProject(info) {
     val paxExamVersion = "1.2.0"
 
     // Compile
-    val scalaModulesCore = "com.weiglewilczek.scalamodules" %% "scalamodules-core" % projectVersion.value.toString
+    val scalaModulesCore = "com.weiglewilczek.scalamodules" %% "scalamodules-core" % "2.0.0"
 
     // Provided
     val osgiCore = "org.osgi" % "org.osgi.core" % osgiVersion % "provided"
@@ -81,7 +81,7 @@ class RadioParentProject(info: ProjectInfo) extends ParentProject(info) {
       super.bndImportPackage.toList
     override def bndVersionPolicy = Some("[$(@),$(version;=+;$(@)))")
   }
-  
+
   // ===================================================================================================================
   // songfinder-watch subproject
   // ===================================================================================================================

@@ -39,14 +39,11 @@ class Plugins(info: ProjectInfo) extends PluginDefinition(info) {
   // Repositories
   // ===================================================================================================================
 
-  object Repositories {
-    lazy val aquteRepo = "aQute Maven Repository" at "http://www.aqute.biz/repo"
-  }
+  lazy val aquteRepo = "aQute Maven Repository" at "http://www.aqute.biz/repo"
 
   // ===================================================================================================================
   // ModuleConfigurations
   // ===================================================================================================================
-  import Repositories._
 
   lazy val aquteModuleConfig = ModuleConfiguration("biz.aQute", aquteRepo)
 
