@@ -36,13 +36,13 @@ package watch
 
 import com.weiglewilczek.scalamodules._
 import org.osgi.framework.{ BundleActivator, BundleContext }
-import scala.actors._
+import scala.actors.Actor
 
 class Activator extends BundleActivator {
   var run = true
-  case class WatchActor(context: BundleContext) extends Actor {
-    def act {
-      while (run) {
+  class WatchActor(context: BundleContext) extends Actor {
+    def act() {
+      while(run) {
         println("[radio/songfinder-watch] watching")
         context watchServices withInterface[Songfinder] andHandle {
           case AddingService(songfinder, _) => songfinder.find
@@ -54,7 +54,7 @@ class Activator extends BundleActivator {
   }
   override def start(context: BundleContext) {
     println("[radio/songfinder-watch] is starting")
-    WatchActor(context).start()
+    new WatchActor(context).start()
     println("[radio/songfinder-watch] has started")
   }
   override def stop(context: BundleContext) {
